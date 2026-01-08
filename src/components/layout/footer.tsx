@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import { 
 Facebook, 
 Instagram, 
-Linkedin, 
-MapPin, 
+Linkedin,  
 Phone, 
 Mail 
 } from "lucide-react";
