@@ -1,17 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { 
   Moon, 
   Globe, 
-  ChevronDown, 
   Menu,
-  Code2, 
-  Smartphone, 
-  Palette, 
-  Cpu, 
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Sheet,
   SheetContent,
@@ -21,23 +16,14 @@ import {
 } from "@/components/ui/sheet";
 import Image from "next/image";
 
-const services = [
-  { title: "Web Development", href: "/services/web-development", icon: Code2 },
-  { title: "Mobile Applications", href: "/services/mobile-apps", icon: Smartphone },
-  { title: "UI/UX Designs", href: "/services/ui-ux", icon: Palette },
-  { title: "AI Solutions", href: "/services/ai-solutions", icon: Cpu },
-];
-
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Contact Us", href: "/contact" },
+  { name: "Services", href: "/services" },
 ];
 
 export default function Navbar() {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
-
   return (
     <motion.nav 
       initial={{ y: -100 }}
@@ -62,37 +48,7 @@ export default function Navbar() {
           <Link href="/" className="hover:text-indigo-600 transition-colors">Home</Link>
           <Link href="/about" className="hover:text-indigo-600 transition-colors">About Us</Link>
           
-          <div 
-            className="relative h-full py-2"
-            onMouseEnter={() => setIsServicesOpen(true)}
-            onMouseLeave={() => setIsServicesOpen(false)}
-          >
-            <button className="flex items-center gap-1 hover:text-indigo-600 transition-colors">
-              Services <ChevronDown className={`transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} size={14} />
-            </button>
-
-            <AnimatePresence>
-              {isServicesOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-120"
-                >
-                  <div className="bg-white rounded-xl shadow-2xl border border-slate-100 p-4 grid grid-cols-2 gap-2">
-                    {services.map((item) => (
-                      <Link key={item.title} href={item.href} className="group flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-all">
-                        <div className="p-2 bg-indigo-50 text-indigo-600 rounded-md group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                          <item.icon size={18} />
-                        </div>
-                        <div className="text-sm font-semibold text-slate-900 group-hover:text-indigo-600">{item.title}</div>
-                      </Link>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+<Link href="/services" className="hover:text-indigo-600 transition-colors">Services</Link>
 
           <Link href="/contact" className="hover:text-indigo-600 transition-colors">Contact Us</Link>
         </div>
@@ -135,37 +91,8 @@ export default function Navbar() {
                   <Link href="/" className="text-lg font-medium py-2 border-b border-slate-50">Home</Link>
                   <Link href="/about" className="text-lg font-medium py-2 border-b border-slate-50">About Us</Link>
                   
-                  {/* Mobile Services Accordion */}
-                  <div className="flex flex-col">
-                    <button 
-                      onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                      className="flex items-center justify-between text-lg font-medium py-2 border-b border-slate-50"
-                    >
-                      Services <ChevronDown className={`transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
-                    </button>
-                    
-                    <AnimatePresence>
-                      {isMobileServicesOpen && (
-                        <motion.div 
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          className="overflow-hidden bg-slate-50 rounded-lg mt-2"
-                        >
-                          {services.map((service) => (
-                            <Link 
-                              key={service.title} 
-                              href={service.href}
-                              className="flex items-center gap-3 p-4 hover:bg-indigo-50 text-slate-600"
-                            >
-                              <service.icon size={18} className="text-indigo-600" />
-                              <span className="text-sm font-medium">{service.title}</span>
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                  <Link href="/services" className="text-lg font-medium py-2 border-b border-slate-50">Services</Link>
+
 
                   <Link href="/contact" className="text-lg font-medium py-2 border-b border-slate-50">Contact Us</Link>
                   

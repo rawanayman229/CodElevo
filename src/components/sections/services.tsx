@@ -7,28 +7,28 @@ const services = [
     description: "Build modern, responsive websites with cutting-edge technologies",
     icon: <Code2 className="w-6 h-6 text-white" />,
     gradient: "from-blue-400 to-blue-600",
-    href: "/services/web-development",
+    href: "/services/#web-development",
   },
   {
     title: "Mobile Applications",
     description: "Native and cross-platform mobile apps for iOS and Android",
     icon: <Smartphone className="w-6 h-6 text-white" />,
     gradient: "from-purple-400 to-pink-500",
-    href: "/services/mobile-apps",
+    href: "/services/#mobile-apps",
   },
   {
     title: "UI/UX Design",
     description: "Create stunning user experiences with beautiful interfaces",
     icon: <Palette className="w-6 h-6 text-white" />,
     gradient: "from-orange-400 to-red-500",
-    href: "/services/ui-ux-design",
+    href: "/services/#ui-ux",
   },
   {
     title: "AI Solutions",
     description: "Leverage artificial intelligence to automate and optimize your processes",
     icon: <Brain className="w-6 h-6 text-white" />,
     gradient: "from-green-400 to-emerald-600",
-    href: "/services/ai-solutions",
+    href: "/services/#ai-solutions",
   },
 ];
 

@@ -86,10 +86,10 @@ return (
           <motion.div variants={itemVariants} className="space-y-6">
             <h3 className="text-white font-bold text-lg">Services</h3>
             <ul className="space-y-4">
-              <li><Link href="/services/web-development" className="hover:text-blue-400 transition-colors">Web Development</Link></li>
-              <li><Link href="/services/mobile-apps" className="hover:text-blue-400 transition-colors">Mobile Applications</Link></li>
-              <li><Link href="/services/ui-ux" className="hover:text-blue-400 transition-colors">UI/UX Design</Link></li>
-              <li><Link href="/services/ai-solutions" className="hover:text-blue-400 transition-colors">AI Solutions</Link></li>
+              <li><Link href="/services/#web-development" className="hover:text-blue-400 transition-colors">Web Development</Link></li>
+              <li><Link href="/services/#mobile-apps" className="hover:text-blue-400 transition-colors">Mobile Applications</Link></li>
+              <li><Link href="/services/#ui-ux" className="hover:text-blue-400 transition-colors">UI/UX Design</Link></li>
+              <li><Link href="/services/#ai-solutions" className="hover:text-blue-400 transition-colors">AI Solutions</Link></li>
             </ul>
           </motion.div>
 
