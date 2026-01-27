@@ -77,7 +77,7 @@ export default function ServicesPage() {
 
       {/* Services Sections */}
       <div className="space-y-32 max-w-7xl mx-auto px-6">
-        {servicesData.map((service, index) => (
+        {servicesData.map((service) => (
           <section 
             key={service.id} 
             id={service.id} 
