@@ -1,26 +1,29 @@
-import { ArrowRight } from "lucide-react";
+"use client";
+
 import Image from "next/image";
+import useEmblaCarousel from "embla-carousel-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
+    title: "Doctors Platform",
     category: "Web Development",
-    image: "/logo.png",
+    images: ["/pro1.jpg", "/pro1-2.jpg", "/pro1-3.jpg", "/pro1-4.jpg"],
   },
   {
-    title: "Banking App",
+    title: "E-commerce App",
     category: "Mobile Application",
-    image: "/logo.png",
+    images: ["/pro2.png","/pro2-1.png" ]
   },
   {
-    title: "Healthcare Dashboard",
+    title: "Hand-Made Website",
     category: "UI/UX Design",
-    image: "/logo.png",
+    images: ["/pro3.jpg", "/pro3-1.jpg", "/pro3-2.jpg"],
   },
   {
-    title: "AI Chatbot",
-    category: "AI Solution",
-    image: "/logo.png",
+    title: "Clothing Brand Website",
+    category: "Web Development",
+    images: ["/pro4.jpg", "/pro4-1.jpg", "/pro4-2.jpg", "/pro4-3.jpg", "/pro4-4.jpg"],
   },
 ];
 
@@ -28,6 +31,7 @@ export default function Portfolio() {
   return (
     <section className="py-24 bg-[#fcfaff]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[#1a2b4b] mb-4">
@@ -38,41 +42,87 @@ export default function Portfolio() {
           </p>
         </div>
 
-        {/* Portfolio Grid */}
+        {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group relative h-75 md:h-100 overflow-hidden rounded-3xl cursor-pointer shadow-lg"
-            >
-              {/* Background Image */}
+            <ProjectCard key={index} project={project} />
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+/* ===============================
+  Project Card + Carousel
+================================ */
+function ProjectCard({
+  project,
+}: {
+  project: {
+    title: string;
+    category: string;
+    images: string[];
+  };
+}) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+
+  return (
+    <div className="group relative overflow-hidden rounded-3xl shadow-xl bg-black">
+
+      {/* Carousel */}
+      <div
+        className="relative overflow-hidden h-80 md:h-105"
+        ref={emblaRef}
+      >
+        <div className="flex h-full">
+          {project.images.map((img, i) => (
+            <div key={i} className="relative flex-[0_0_100%] h-full">
               <Image
-                src={project.image}
+                src={img}
                 alt={project.title}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                priority={i === 0}
+                className="object-cover"
               />
-
-              {/* Dark Overlay Gradient */}
-              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
-
-              {/* Content Box */}
-              <div className="absolute bottom-0 left-0 p-8 w-full">
-                <p className="text-blue-400 font-medium text-sm mb-2">
-                  {project.category}
-                </p>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  {project.title}
-                </h3>
-                
-                <div className="flex items-center text-white text-sm font-semibold opacity-90 group-hover:gap-3 transition-all duration-300 gap-2">
-                  View Project <ArrowRight className="w-4 h-4" />
-                </div>
-              </div>
             </div>
           ))}
         </div>
+
+        {/* Left Arrow */}
+        <button
+          onClick={() => emblaApi?.scrollPrev()}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20
+         bg-white/80 hover:bg-white text-black
+            p-2 rounded-full shadow-md
+            opacity-0 group-hover:opacity-100 transition">
+          <ChevronLeft size={22} />
+        </button>
+
+        {/* Right Arrow */}
+        <button
+          onClick={() => emblaApi?.scrollNext()}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20
+            bg-white/80 hover:bg-white text-black
+              p-2 rounded-full shadow-md
+              opacity-0 group-hover:opacity-100 transition">
+          <ChevronRight size={22} />
+        </button>
       </div>
-    </section>
+
+      {/* Gradient Overlay */}
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
+
+      {/* Text Content */}
+      <div className="absolute bottom-0 left-0 p-8 w-full">
+        <p className="text-blue-300 text-sm font-medium mb-2">
+          {project.category}
+        </p>
+        <h3 className="text-2xl md:text-3xl font-bold text-white">
+          {project.title}
+        </h3>
+      </div>
+    </div>
   );
 }
