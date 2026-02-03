@@ -13,7 +13,7 @@ const projects = [
   {
     title: "E-commerce App",
     category: "Mobile Application",
-    images: ["/pro2.png","/pro2-1.png" ]
+    images: ["/pro2.png", "/pro2-1.png"]
   },
   {
     title: "Hand-Made Website",
@@ -29,15 +29,15 @@ const projects = [
 
 export default function Portfolio() {
   return (
-    <section className="py-24 bg-[#fcfaff]">
+    <section className="py-24 bg-[#fcfaff] dark:bg-slate-950 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1a2b4b] mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#1a2b4b] dark:text-slate-200 mb-4 transition-colors">
             Our Portfolio
           </h2>
-          <p className="text-slate-500 text-lg">
+          <p className="text-slate-500 dark:text-slate-400 text-lg transition-colors">
             Explore our successful projects
           </p>
         </div>
@@ -69,7 +69,7 @@ function ProjectCard({
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
   return (
-    <div className="group relative overflow-hidden rounded-3xl shadow-xl bg-black">
+    <div className="group relative overflow-hidden rounded-3xl shadow-xl bg-black dark:bg-slate-900 transition-colors">
 
       {/* Carousel */}
       <div
@@ -94,9 +94,10 @@ function ProjectCard({
         <button
           onClick={() => emblaApi?.scrollPrev()}
           className="absolute left-4 top-1/2 -translate-y-1/2 z-20
-         bg-white/80 hover:bg-white text-black
-            p-2 rounded-full shadow-md
-            opacity-0 group-hover:opacity-100 transition">
+          bg-white/80 dark:bg-slate-800/60 hover:bg-white dark:hover:bg-slate-700/70
+          text-black dark:text-white p-2 rounded-full shadow-md
+          opacity-0 group-hover:opacity-100 transition"
+        >
           <ChevronLeft size={22} />
         </button>
 
@@ -104,22 +105,24 @@ function ProjectCard({
         <button
           onClick={() => emblaApi?.scrollNext()}
           className="absolute right-4 top-1/2 -translate-y-1/2 z-20
-            bg-white/80 hover:bg-white text-black
-              p-2 rounded-full shadow-md
-              opacity-0 group-hover:opacity-100 transition">
+          bg-white/80 dark:bg-slate-800/60 hover:bg-white dark:hover:bg-slate-700/70
+          text-black dark:text-white p-2 rounded-full shadow-md
+          opacity-0 group-hover:opacity-100 transition"
+        >
           <ChevronRight size={22} />
         </button>
       </div>
 
       {/* Gradient Overlay */}
-      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-t
+        from-black/90 dark:from-black/80 via-black/40 dark:via-black/60 to-transparent" />
 
       {/* Text Content */}
       <div className="absolute bottom-0 left-0 p-8 w-full">
-        <p className="text-blue-300 text-sm font-medium mb-2">
+        <p className="text-blue-300 dark:text-blue-400 text-sm font-medium mb-2 transition-colors">
           {project.category}
         </p>
-        <h3 className="text-2xl md:text-3xl font-bold text-white">
+        <h3 className="text-2xl md:text-3xl font-bold text-white dark:text-slate-100 transition-colors">
           {project.title}
         </h3>
       </div>

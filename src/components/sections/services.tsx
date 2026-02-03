@@ -34,11 +34,11 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white dark:bg-slate-950 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-200 mb-4 transition-colors">
             Our Services
           </h2>
         </div>
@@ -49,18 +49,20 @@ export default function Services() {
             <Link 
               key={index} 
               href={service.href}
-              className="group p-8 bg-white rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] transition-all duration-300 border border-slate-50 flex flex-col items-start hover:-translate-y-1"
-            >
+              className="group p-8 bg-white dark:bg-slate-900 rounded-2xl 
+              shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_40px_-15px_rgba(255,255,255,0.05)] 
+              hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_20px_50px_-12px_rgba(255,255,255,0.08)]
+              transition-all duration-300 border border-slate-50 dark:border-slate-800 flex flex-col items-start hover:-translate-y-1">
               {/* Icon Box */}
               <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 bg-linear-to-br ${service.gradient} group-hover:scale-110 transition-transform duration-300`}>
                 {service.icon}
               </div>
               
               {/* Content */}
-              <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-3 group-hover:text-blue-600 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-slate-500 leading-relaxed text-sm">
+              <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm transition-colors">
                 {service.description}
               </p>
             </Link>

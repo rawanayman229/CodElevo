@@ -12,8 +12,8 @@ export default function ContactPage() {
     e.preventDefault();
     setLoading(true);
 
-  const form = e.currentTarget;
-  const formData = new FormData(form);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     try {
       const res = await fetch('/api/send-email', {
@@ -38,16 +38,15 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-[#f9f9ff]">
+    <div className="bg-white dark:bg-slate-950 transition-colors">
 
       {/* ===== Hero Section ===== */}
-      <section className="max-w-7xl mx-auto px-6 py-20 text-center">
+      <section className="max-w-7xl mx-auto px-6 py-20 mt-10 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl font-bold text-slate-900"
-        >
+          className="text-5xl font-bold text-slate-900 dark:text-slate-200 transition-colors">
           Contact Us
         </motion.h1>
 
@@ -55,7 +54,7 @@ export default function ContactPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="mt-4 text-slate-600"
+          className="mt-4 text-slate-600 dark:text-slate-400 transition-colors"
         >
           Get in touch with our team
         </motion.p>
@@ -69,38 +68,38 @@ export default function ContactPage() {
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl p-8 shadow-lg"
+          className="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-lg transition-colors"
         >
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1 transition-colors">Full Name</label>
               <input
                 type="text"
                 name="name"
                 placeholder="Enter your name"
-                className="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full rounded-xl border border-slate-300 dark:border-slate-700 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-200 transition-colors"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1 transition-colors">Email Address</label>
               <input
                 type="email"
                 name="email"
                 placeholder="Enter your email"
-                className="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full rounded-xl border border-slate-300 dark:border-slate-700 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-200 transition-colors"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Your Message</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1 transition-colors">Your Message</label>
               <textarea
                 rows={5}
                 name="message"
                 placeholder="Write your message here..."
-                className="w-full rounded-xl border border-slate-300 px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full rounded-xl border border-slate-300 dark:border-slate-700 px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-200 transition-colors"
                 required
               />
             </div>
@@ -123,7 +122,7 @@ export default function ContactPage() {
           viewport={{ once: true }}
           className="space-y-6"
         >
-          <h2 className="text-2xl font-semibold text-slate-900">
+          <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-200 transition-colors">
             Contact Information
           </h2>
 
@@ -163,12 +162,12 @@ function InfoItem({
 }) {
   return (
     <div className="flex items-start gap-4">
-      <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-indigo-100 text-indigo-600">
+      <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-200 transition-colors">
         <Icon size={20} />
       </div>
       <div>
-        <h4 className="font-medium text-slate-900">{title}</h4>
-        <p className="text-sm text-slate-600">{text}</p>
+        <h4 className="font-medium text-slate-900 dark:text-slate-200 transition-colors">{title}</h4>
+        <p className="text-sm text-slate-600 dark:text-slate-400 transition-colors">{text}</p>
       </div>
     </div>
   );

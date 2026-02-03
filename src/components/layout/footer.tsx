@@ -1,130 +1,106 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { 
-Facebook, 
-Instagram, 
-Linkedin,  
-Phone, 
-Mail 
-} from "lucide-react";
+import { Facebook, Linkedin, Mail, Instagram } from "lucide-react";
 import Image from "next/image";
 
-const Footer = () => {
-const currentYear = new Date().getFullYear();
+export default function Footer() {
+  return (
+    <footer className="
+      bg-white dark:bg-slate-900
+      text-slate-600 dark:text-slate-300
+      border-t border-slate-100 dark:border-slate-800
+      transition-colors duration-300
+    ">
+      <div className="max-w-7xl mx-auto px-6 py-12">
 
-const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-        duration: 0.5,
-        staggerChildren: 0.1,
-    },
-    },
-};
+        {/* Top Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 
-const itemVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 0 },
-};
-
-return (
-    <footer className="bg-[#0a1120] text-slate-400 py-16 px-6 md:px-12 lg:px-24">
-      <motion.div 
-        className="max-w-7xl mx-auto"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={containerVariants}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          
-          {/* Brand Column */}
-          <motion.div variants={itemVariants} className="space-y-6">
-            {/* Logo */}
-  <Link href="/" className="flex items-center">
-  <Image
-    src="/logo.png"
-    alt="CodElevo Logo"
-    width={160}
-    height={40}
-    priority
-    className="h-10 w-auto object-contain"
-  />
-</Link>
-            <p className="leading-relaxed">
-              Transforming businesses through innovative digital solutions.
+          {/* Brand */}
+          <div>
+          <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.png"
+            alt="CodElevo Logo"
+            width={160}
+            height={40}
+            priority
+            className="object-contain"
+          />
+        </Link>
+            <p className="justify-content-center text-left">
+              Elevating ideas into digital reality.  
+              We build scalable and modern web solutions.
             </p>
-            <div className="flex space-x-4">
-              <Link href="https://www.facebook.com/share/1BaYHu8gn3/" target="_blank" className="hover:text-blue-400 transition-colors">
-                <Facebook size={20} />
-              </Link>
-              <Link href="https://www.instagram.com/codelevo?igsh=MWRzZG5lYzFzcDMydg==" target="_blank" className="hover:text-blue-400 transition-colors">
-                <Instagram size={20} />
-              </Link>
-              <Link href="https://www.linkedin.com/company/codelevo/" target="_blank" className="hover:text-blue-400 transition-colors">
-                <Linkedin size={20} />
-              </Link>
+          </div>
+
+          {/* Links */}
+          <div>
+            <h4 className="font-semibold text-slate-900 dark:text-white mb-4">
+              Quick Links
+            </h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-indigo-600 dark:hover:text-indigo-400">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-indigo-600 dark:hover:text-indigo-400">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-indigo-600 dark:hover:text-indigo-400">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-semibold text-slate-900 dark:text-white mb-4">
+              Contact
+            </h4>
+
+            <div className="flex items-center gap-3 text-sm mb-3">
+              <Mail size={16} />
+              <span>codelevo123@gmail.com</span>
             </div>
-          </motion.div>
 
-          {/* Quick Links Column */}
-          <motion.div variants={itemVariants} className="space-y-6">
-            <h3 className="text-white font-bold text-lg">Quick Links</h3>
-            <ul className="space-y-4">
-              <li><Link href="/" className="hover:text-blue-400 transition-colors">Home</Link></li>
-              <li><Link href="/about" className="hover:text-blue-400 transition-colors">About Us</Link></li>
-              <li><Link href="/services" className="hover:text-blue-400 transition-colors">Services</Link></li>
-              <li><Link href="/contact" className="hover:text-blue-400 transition-colors">Contact Us</Link></li>
-            </ul>
-          </motion.div>
+            <div className="flex gap-4 mt-4">
+              <a href="https://www.facebook.com/share/1BaYHu8gn3/" className="hover:text-indigo-600 dark:hover:text-indigo-400" target="_blank">
+                <Facebook size={18} />
+              </a>
+              <a href="https://www.instagram.com/codelevo?igsh=MWRzZG5lYzFzcDMydg==" className="hover:text-indigo-600 dark:hover:text-indigo-400" target="_blank">
+                <Instagram size={18} />
+              </a>
+              <a href="https://www.linkedin.com/company/codelevo/" className="hover:text-indigo-600 dark:hover:text-indigo-400" target="_blank"> 
+                <Linkedin size={18} />
+              </a>
+            </div>
+          </div>
 
-          {/* Services Column */}
-          <motion.div variants={itemVariants} className="space-y-6">
-            <h3 className="text-white font-bold text-lg">Services</h3>
-            <ul className="space-y-4">
-              <li><Link href="/services/#web-development" className="hover:text-blue-400 transition-colors">Web Development</Link></li>
-              <li><Link href="/services/#mobile-apps" className="hover:text-blue-400 transition-colors">Mobile Applications</Link></li>
-              <li><Link href="/services/#ui-ux" className="hover:text-blue-400 transition-colors">UI/UX Design</Link></li>
-              <li><Link href="/services/#ai-solutions" className="hover:text-blue-400 transition-colors">AI Solutions</Link></li>
-            </ul>
-          </motion.div>
-
-          {/* Contact Column */}
-          <motion.div variants={itemVariants} className="space-y-6">
-            <h3 className="text-white font-bold text-lg">Contact Information</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <i  className="fa-brands fa-whatsapp text-blue-500 mt-1 shrink-0" />
-                <span>01143283891</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone size={20} className="text-blue-500 shrink-0" />
-                <span>(+20) 1550598053</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail size={20} className="text-blue-500 shrink-0" />
-                <span>codelevo123@gmail.com</span>
-              </li>
-            </ul>
-          </motion.div>
         </div>
 
-        {/* Bottom Bar */}
-        <motion.div 
-          variants={itemVariants}
-          className="border-t border-slate-800 pt-8 text-center"
-        >
-          <p className="text-sm">
-            © {currentYear} CodElevo. All rights reserved.
-          </p>
-        </motion.div>
-      </motion.div>
+        {/* Bottom */}
+        <div className="
+          mt-12 pt-6
+          border-t border-slate-100 dark:border-slate-800
+          text-center text-xs
+        ">
+          © {new Date().getFullYear()} CodElevo. All rights reserved.
+        </div>
+
+      </div>
     </footer>
   );
-};
-
-export default Footer;
+}

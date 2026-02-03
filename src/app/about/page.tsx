@@ -11,15 +11,15 @@ import {
 
 export default function AboutPage() {
   return (
-    <div className="bg-[#f9f9ff]">
+    <div className="bg-[#f9f9ff] dark:bg-slate-950 transition-colors">
 
       {/* ===== Hero Section ===== */}
-      <section className="max-w-7xl mx-auto px-6 py-20 text-center">
+      <section className="max-w-7xl mx-auto px-6 py-20 mt-10 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl font-bold text-slate-900"
+          className="text-5xl font-bold text-slate-900 dark:text-slate-200 transition-colors"
         >
           About CodElevo
         </motion.h1>
@@ -28,7 +28,7 @@ export default function AboutPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="mt-4 text-slate-600"
+          className="mt-4 text-slate-600 dark:text-slate-400 transition-colors"
         >
           Your trusted digital transformation partner
         </motion.p>
@@ -41,16 +41,16 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-semibold text-slate-900 mb-6">
+          <h2 className="text-3xl font-semibold text-slate-900 dark:text-slate-200 mb-6 transition-colors">
             Our Story
           </h2>
-          <p className="text-slate-600 leading-relaxed mb-4">
+          <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4 transition-colors">
             CodElevo is a leading digital solutions company dedicated to helping
             businesses thrive in the digital age. With our team of expert
             developers, designers, and strategists, we deliver innovative
             solutions that drive growth and success.
           </p>
-          <p className="text-slate-600 leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 leading-relaxed transition-colors">
             Since our founding, we&apos;ve been at the forefront of digital
             innovation, helping businesses navigate the complexities of the
             digital landscape and achieve their goals.
@@ -78,11 +78,11 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl font-semibold text-slate-900"
+          className="text-3xl font-semibold text-slate-900 dark:text-slate-200 transition-colors"
         >
           Our Values
         </motion.h2>
-        <p className="mt-2 text-slate-600">
+        <p className="mt-2 text-slate-600 dark:text-slate-400 transition-colors">
           The principles that guide everything we do
         </p>
 
@@ -94,15 +94,15 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition"
+              className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-md hover:shadow-lg transition-colors"
             >
-              <div className="w-12 h-12 mx-auto flex items-center justify-center rounded-xl bg-indigo-100 text-indigo-600 mb-4">
+              <div className="w-12 h-12 mx-auto flex items-center justify-center rounded-xl bg-indigo-100 dark:bg-indigo-700 text-indigo-600 dark:text-indigo-200 mb-4 transition-colors">
                 <item.icon size={24} />
               </div>
-              <h3 className="font-semibold text-slate-900 mb-2">
+              <h3 className="font-semibold text-slate-900 dark:text-slate-200 mb-2 transition-colors">
                 {item.title}
               </h3>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-slate-600 dark:text-slate-400 transition-colors">
                 {item.desc}
               </p>
             </motion.div>
@@ -136,4 +136,3 @@ const values = [
     desc: 'Committed to delivering the highest quality solutions.'
   }
 ];
-

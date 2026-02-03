@@ -53,14 +53,15 @@ const servicesData = [
 
 export default function ServicesPage() {
   return (
-    <main className="pt-32 pb-20 bg-white">
+    <main className="pt-30 pb-20 bg-white dark:bg-slate-950 transition-colors">
+
       {/* Header Section */}
       <div className="text-center mb-20 px-4">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-slate-900 mb-4"
+          className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-200 mb-4 transition-colors"
         >
           Our Services
         </motion.h1>
@@ -69,7 +70,7 @@ export default function ServicesPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-slate-500 text-lg"
+          className="text-slate-500 dark:text-slate-400 text-lg transition-colors"
         >
           Comprehensive digital solutions for your business
         </motion.p>
@@ -98,8 +99,8 @@ export default function ServicesPage() {
                 </div>
                 
                 <div>
-                  <h2 className="text-3xl font-bold text-slate-900 mb-3">{service.title}</h2>
-                  <p className="text-slate-500 mb-8">{service.description}</p>
+                  <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-200 mb-3 transition-colors">{service.title}</h2>
+                  <p className="text-slate-500 dark:text-slate-400 mb-8 transition-colors">{service.description}</p>
                 </div>
 
                 <ul className="grid grid-cols-1 gap-y-3">
@@ -110,9 +111,9 @@ export default function ServicesPage() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.05 }}
-                      className="flex items-center space-x-3 text-sm font-medium text-slate-600"
+                      className="flex items-center space-x-3 text-sm font-medium text-slate-600 dark:text-slate-300 transition-colors"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-blue-500" />
+                      <CheckCircle2 className="w-4 h-4 text-blue-500 dark:text-blue-400" />
                       <span>{feature}</span>
                     </motion.li>
                   ))}
