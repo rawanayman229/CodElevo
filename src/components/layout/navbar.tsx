@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { Moon, Menu, Sun } from "lucide-react";
+import { Moon, Menu, Sun, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import {
   Sheet,
@@ -105,10 +105,17 @@ export default function Navbar() {
                   <Link href="/services" className="text-lg font-medium py-2 border-b border-slate-50 dark:border-slate-700">Services</Link>
                   <Link href="/contact" className="text-lg font-medium py-2 border-b border-slate-50 dark:border-slate-700">Contact Us</Link>
 
-                  <div className="pt-10">
-                    <button className="w-full bg-linear-to-r from-[#5b66f6] to-[#a855f7] hover:from-[#a855f7] hover:to-[#5b66f6] text-white py-3 rounded-xl font-bold">
-                      Get Started
-                    </button>
+           <div className="pt-10">
+            <Link
+            href="/contact" 
+            className="flex items-center gap-2 px-8 py-3.5 
+                       bg-linear-to-r from-[#5b66f6] to-[#a855f7] 
+                       hover:from-[#a855f7] hover:to-[#5b66f6] 
+                       text-white rounded-lg font-medium 
+                       transition-all shadow-lg 
+                       shadow-indigo-200 dark:shadow-indigo-900/30">
+                       Get Started <ArrowRight size={18} />
+                  </Link>
                   </div>
                 </nav>
               </SheetContent>
