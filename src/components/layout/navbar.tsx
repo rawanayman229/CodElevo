@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { Moon, Globe, Menu, Sun } from "lucide-react";
+import { Moon, Menu, Sun } from "lucide-react";
 import { motion } from "framer-motion";
 import {
   Sheet,
@@ -75,12 +75,6 @@ export default function Navbar() {
             className="p-2 text-slate-700 dark:text-slate-200 hover:text-indigo-600 transition-colors hidden sm:block"
           >
             {darkMode ? <Sun size={20} strokeWidth={1.5} /> : <Moon size={20} strokeWidth={1.5} />}
-          </button>
-
-          {/* Language Button */}
-          <button className="flex items-center space-x-1 text-slate-700 dark:text-slate-200 hover:text-indigo-600 transition-colors">
-            <Globe size={20} strokeWidth={1.5} />
-            <span className="text-xs font-bold uppercase">ar</span>
           </button>
 
           {/* Mobile Menu */}
